@@ -1,12 +1,25 @@
 #include "stdio.h"
 #include "math.h"
+#include "locale.h"
 #include "malloc.h"
-#define N 775146
 
 int main(int argc, char const *argv[])
-{
-    int a = 0, c = sqrt(600851475143);
+{setlocale(LC_ALL, "Rus");
+    int a = 0, N;
+    long long int c = 0;
     
+
+    M1: printf("Введите число:\n");
+    scanf("%lli", &c);
+    if (c>0)
+    {
+      N = sqrt(c);
+      printf("корень числа равен %d\n", N);
+    }
+    else{
+        printf("Неправильное число\n");
+        goto M1;
+    }
     int *A= NULL;
         
         A = (int *)calloc(N, sizeof(int));
@@ -21,18 +34,14 @@ int main(int argc, char const *argv[])
                 }    
             }           
         }        
-        for (int i = 2; i < N; i++)
+        for (int i = 2; i <= N; i++)
         {
-            if (A[i] == 0 && 600851475143%i==0 && i>a)
+            if (A[i] == 0 && c%i==0 && i>a)
             {
                a = i;
             }
         }
         
-    printf("%d\n", a); 
-    //printf("%d\n",c); printf("A[%d] = %d\n", i, A[N]);
+    printf("Наибольший делитель числа: %d\n", a); 
     return 0;
 }
-/*
-            printf("A[%d] = %d\n", i, A[i]);
-            printf("%d\n", i);*/
