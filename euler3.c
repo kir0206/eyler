@@ -1,23 +1,25 @@
 #include "stdio.h"
 #include "math.h"
-#include "locale.h"
 #include "malloc.h"
+#include "inttypes.h"
+#include "locale.h"
 
 int main(int argc, char const *argv[])
-{setlocale(LC_ALL, "Rus");
+{
+    setlocale(LC_ALL, "Rus");
     int a = 0, N;
     long long int c = 0;
     
 
-    M1: printf("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ:\n");
-    scanf("%lli", &c);
+    M1: printf("Введите число:\n");
+    scanf("%I64d", &c);
     if (c>0)
     {
       N = sqrt(c);
-      printf("РєРѕСЂРµРЅСЊ С‡РёСЃР»Р° СЂР°РІРµРЅ %d\n", N);
+      printf("корень числа равен %d\n", N);
     }
     else{
-        printf("РќРµРїСЂР°РІРёР»СЊРЅРѕРµ С‡РёСЃР»Рѕ\n");
+        printf("Неправильное число\n");
         goto M1;
     }
     int *A= NULL;
@@ -42,6 +44,6 @@ int main(int argc, char const *argv[])
             }
         }
         
-    printf("РќР°РёР±РѕР»СЊС€РёР№ РґРµР»РёС‚РµР»СЊ С‡РёСЃР»Р°: %d\n", a); 
+    printf("Наибольший делитель числа: %d\n", a); 
     return 0;
 }

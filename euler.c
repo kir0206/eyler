@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include <locale.h>
 
-int main(int argc, char const *argv[])
-{
-    int n;
-    printf("pidor");
-    scanf("%d", &n);
-    printf("%d", n);
+int main(void)
+{   setlocale(LC_ALL, "Rus");
+    char n[80];
+    printf("неплохо\n");
+    scanf("%[^\n]", n);
+    printf("%s\n", n);
     return 0;
 }
